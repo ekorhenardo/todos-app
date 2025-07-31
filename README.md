@@ -5,8 +5,8 @@ Follow these steps to set up the development environment.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourname/myproject.git
-cd myproject
+git clone https://github.com/ekorhenardo/todos-app.git
+cd todos-app
 ```
 
 ### 2. Install Python via pyenv

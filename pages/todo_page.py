@@ -62,3 +62,8 @@ class TodoPage:
     def get_todo_text(self):
         field = self.driver.find_element(By.XPATH, '//*[@data-testid="todo-item-label"]')
         return field.text
+    
+    def get_all_todo_count(self):
+        field = self.driver.find_elements(By.XPATH, '//*[@data-testid="todo-item-label"]')
+        count = len(field)
+        return count

@@ -44,4 +44,3 @@ The following criteria were used to guide test case development for the `todo-ap
 5. **AC05**: The list should reflect correct count of active items.
 6. **AC06**: Filters (All, Active, Completed) should change the displayed list accordingly.
 7. **AC07**: User can edit a todo by double clicking the input field and save the changes by pressing Enter.
-8. **AC08**: The app should preserve todos on page reload (if persistence is expected).

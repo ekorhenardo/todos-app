@@ -12,6 +12,12 @@ class TodoPage:
         field = self.driver.find_element(By.XPATH, '//*[@id="todo-input"]')
         field.send_keys(text + Keys.ENTER)
 
+    def edit_todo(self, text):
+        field = self.driver.find_element(By.XPATH, '//*[@data-testid="todo-item-label"]')
+        ActionChains(self.driver).double_click(field).perform()
+        edit_field = self.driver.find_element(By.XPATH, '//*[@data-testid="todo-item"]//*[@id="todo-input"]')
+        edit_field.send_keys(" " + text + Keys.ENTER)
+
     def click_checkbox(self):
         field = self.driver.find_element(By.XPATH, '//*[@data-testid="todo-item-toggle"]')
         field.click()
@@ -35,3 +41,24 @@ class TodoPage:
         count = int(text.split()[0]) if text else 0
         return count
     
+    def click_active_filter(self):
+        field = self.driver.find_element(By.XPATH, '//*[text()="Active"]')
+        field.click()
+
+    def get_active_todo_count(self):
+        field = self.driver.find_elements(By.XPATH, '//*[@data-testid="todo-item" and not(contains(@class, "completed"))]')
+        count = len(field)
+        return count
+    
+    def click_completed_filter(self):
+        field = self.driver.find_element(By.XPATH, '//*[text()="Completed"]')
+        field.click()
+
+    def get_completed_todo_count(self):
+        field = self.driver.find_elements(By.XPATH, '//*[@class="completed"]')
+        count = len(field)
+        return count
+    
+    def get_todo_text(self):
+        field = self.driver.find_element(By.XPATH, '//*[@data-testid="todo-item-label"]')
+        return field.text

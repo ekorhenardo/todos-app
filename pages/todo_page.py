@@ -35,7 +35,7 @@ class TodoPage:
         field = self.driver.find_element(By.XPATH, '//*[@class="clear-completed"]')
         field.click()
 
-    def get_active_todo_count(self):
+    def get_display_active_todo_count(self):
         field = self.driver.find_element(By.XPATH, '//*[@class="todo-count"]')
         text = field.text
         count = int(text.split()[0]) if text else 0
